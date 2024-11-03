@@ -4,8 +4,6 @@ from playwright.sync_api import Page, expect
 def test_display_empty_list_on_first_load(live_server, page: Page):
     url = reverse_url(live_server, "index")
 
-    weeee  ## NameError. This is intentional. Please leave it here for now. We are doing this to check our wiring!
-
     page.goto(url)
     page.wait_for_selector("text=Nothing to see")
 
