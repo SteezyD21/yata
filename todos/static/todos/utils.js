@@ -13,7 +13,7 @@ function showOrHideEmptyMessage() {
 }
 
 window.onload = function () {
-    // note the ID here. It is the target from our form's htmx post
+    
     const targetNode = document.getElementById("todo_items");
 
     const config = {
