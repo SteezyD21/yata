@@ -32,3 +32,13 @@ def test_create_todo_item_adds_item_to_list(live_server, page: Page):
     page.get_by_label("Title:").fill("Learn Django")
     page.get_by_role("button", name="Add").click()
     # page.wait_for_selector("text=Learn Django")
+
+def test_create_todo_item_clear_form_after_submission(live_server, page: Page):
+    url = reverse_url(live_server, "index")
+
+    page.goto(url)
+    page.get_by_label("Title:").click()
+    page.get_by_label("Title:").fill("debug")
+    page.get_by_role("button", name="Add").click()
+
+    expect(page.get_by_label("Title:")).to_be_empty()
