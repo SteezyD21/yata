@@ -5,7 +5,7 @@ from . import forms
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello world")
+    
 
     form = forms.CreateTodoForm() 
     context = {"form": form}      
