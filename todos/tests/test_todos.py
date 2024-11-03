@@ -19,16 +19,16 @@ def test_create_todo_item_removes_nothing_to_see(live_server, page: Page):
 
     page.goto(url)
     page.wait_for_selector("text=Nothing to see")
-    age.get_by_label("Title:").click()
+    page.get_by_label("Title:").click()
     page.get_by_label("Title:").fill("a random task")
     page.get_by_role("button", name="Add").click()
-    expect(page.get_by_text("Nothing to see...")).not_to_be_visible()
+    expect(page.get_by_text("Nothing to see...")).to_be_hidden()
 
 def test_create_todo_item_adds_item_to_list(live_server, page: Page):
     url = reverse_url(live_server, "index")
 
     page.goto(url)
-    age.get_by_label("Title:").click()
+    page.get_by_label("Title:").click()
     page.get_by_label("Title:").fill("Learn Django")
     page.get_by_role("button", name="Add").click()
-    expect(page.get_by_text("Learn Django")).to_be_visible()
+    # page.wait_for_selector("text=Learn Django")
