@@ -13,7 +13,6 @@ function showOrHideEmptyMessage() {
 }
 
 window.onload = function () {
-    
     const targetNode = document.getElementById("todo_items");
 
     const config = {
@@ -23,4 +22,6 @@ window.onload = function () {
     const observer = new MutationObserver(showOrHideEmptyMessage);
 
     observer.observe(targetNode, config);
+
+    showOrHideEmptyMessage(); 
 };

@@ -23,21 +23,17 @@
         Things to do
       </h1>
 
-      <div id="todo_items">
-        {% for item in items %}
-        <div class="todo_item">
-            <input type="checkbox" />
-            {{ item.title }}
-            <button>Delete</button>
-        </div>
-        {% empty %}
-        <div id="todo_items_empty" class="text-center text-2xl font-bold text-transparent/30 pt-6">
-            Nothing to see here...
-        </div>
+      <div id="todo_items" class="space-y-2">
+        {% for item in todo_items %}
+    
+        {% include "todos/todo.html" %}
+    
         {% endfor %}
     </div>
     
-
+    <div class="text-center text-2xl font-bold text-transparent/30 pt-6" id="todo_items_empty">
+      Nothing to see here...
+  </div>
       <div class="absolute inset-x-0 bottom-2 flex justify-center">
         <div>
           <h2
